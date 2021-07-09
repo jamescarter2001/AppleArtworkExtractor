@@ -10,16 +10,17 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-i', '-u', '--url', nargs="?",
                     help="Apple Music URL", required=True)
 parser.add_argument('-r', '--region', nargs="?",
-                    help="Region code (US, GB, JP etc)", default="JP")
+                    help="Region Code (US, GB, JP etc)", default="JP")
 args = parser.parse_args()
 
 region = pycountry.countries.get(alpha_2=args.region)
+language = "en_us"  # ja_jp
 
 print(colored(f"Region: {region.name}", 'yellow'))
 
 link = args.url.split('/')[6]
 
-itunes_endpoint = f'https://itunes.apple.com/lookup?id={link}&country={region.alpha_2}&lang=en_us'
+itunes_endpoint = f'https://itunes.apple.com/lookup?id={link}&country={region.alpha_2}&lang={language}'
 
 response = requests.get(itunes_endpoint)
 if response.status_code == 200:
