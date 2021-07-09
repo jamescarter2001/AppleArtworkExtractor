@@ -1,4 +1,4 @@
-# Countrify
+# AppleArtworkExtractor
 
 Command line tool for extracting high resolution album art from Apple Music.
 
