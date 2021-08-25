@@ -18,7 +18,7 @@ language = "en_us"  # ja_jp
 
 print(colored(f"Region: {region.name}", 'yellow'))
 
-link = args.url.split('/')[6]
+link = args.url.split('/')[-1]
 
 itunes_endpoint = f'https://itunes.apple.com/lookup?id={link}&country={region.alpha_2}&lang={language}'
 
