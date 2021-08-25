@@ -30,6 +30,7 @@ if response.status_code == 200:
         f'Copyright: {response.json()["results"][0]["copyright"]}')
     artwork_link = response.json()["results"][0]["artworkUrl100"]
     artwork_link = artwork_link.replace("100x100bb.jpg", "3000x3000bb.jpg")
+    print(f'\nArtwork Link: {artwork_link}')
     webbrowser.open(artwork_link, new=2)
 elif response.status_code == 404:
     print("Track not found.")
